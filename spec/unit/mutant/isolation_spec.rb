@@ -16,7 +16,7 @@ RSpec.describe Mutant::Isolation::None do
     end
 
     it 'wraps *all* exceptions' do
-      expect { object.call { fail  } }.to raise_error(Mutant::Isolation::Error)
+      expect { object.call { fail 'foo' } }.to raise_error(Mutant::Isolation::Error, 'foo')
     end
 
   end
